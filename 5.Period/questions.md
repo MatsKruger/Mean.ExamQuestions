@@ -214,3 +214,95 @@ Promise.all([p1, p2, p3]).then(values => {
   console.log(values); // [3, 1337, "foo"]
 });
 ```
+
+## Explain about TypeScript, how it relates to JavaScript, the major features it offers and what it takes to develop Server and Client side applications with this technology.
+
+TypeScript er et bibliotek som gerne vil gøre JavaScript mere fejlfrit ved hjælp af typer. I TypeScript giver du alle dine variabler, funktioner og attributes typer. Det betyder at jo mere du typificere din kode jo mere lære TypeScript om din kodebase og hjælper dig derudfra med at få din kode mere fejlfri allerede ved kompilerings tid. Det er også muligt at bruge mange ES2015 funktioner i TypeScript.
+TypeScript kode skal transpileres ned til almindelig JavaScript dette bliver gjordt med TypeScript server.
+Man kan kører transpileringen gennem terminalen/CMD ved brug af ```tsc```. Hertil bruges nogle parametre som definere fil, version output og alt muligt andet. Man kan bruge en ```tsconfig.json``` fil til at definere alle disse.
+TypeScript er et lag der ligger oven på JavaScript. Det betyder at man kan tage sin eksisterende kodebase omdøbe en JavaScript fil til TypeScript og den ville så virke som før. Det gør at man stille og roligt kan migrerer over til TypeScript uden at det har betydning for resten af koden.
+Nogle af de store features som kommer med TypeScript er
+- ```interface``` som er en måde at lave en kontrakt for hvordan et objekt skal se ud.
+- Det er typestærkt hvilket betyder at vi kan sørge for at vores kode kører mere flydende uden type fejl.
+- Vi kan gøre brug af de nyeste JavaScript standarder (Er dog nogle fejl her og der. bl.a. med default values men det bliver rettet i næste version)
+
+## Provide examples of Interfaces with typescript and explain what is meant by the term duck-typing.
+I eksemplet nedenfor laver vi et interface ```IPerson``` hvor vi definerer at en person skal have et ```name```, ```age``` og en optional ```email```.
+```javascript
+interface IPerson {
+  name: string;
+  age: number
+  email?: string
+}
+
+class Person implements IPerson {}
+```
+
+Duck typing er en måde hvor fortolkeren er tilfreds hvis et objekt opfylder nogle krav. I eksemplet ovenfor definerer vi at der skal være nogle parametre opfyldt for at kunne oprette objektet. Hvis disse parametre bliver opfyldt er vil fortolkeren være tilfreds og tillade oprettelsen. Det kan beskrives med sætningen "If it looks like a duck and quacks like a duck, it's a duck".
+
+## Provide an example of TypeScript inheritance, involving
+* A top-level interface to define the most basic behaviour and types
+* The constructor shorthand to automatically create properties
+* All of the Access Modifiers public, private and protected (and perhaps also
+readonly)
+* Abstract
+* Static (make a counter than counts the total number of instances)
+
+```javascript
+interface IAnimal {
+  sound: string;
+  name: string;
+}
+
+
+abstract class Animal implements IAnimal {
+  constructor(public sound, public name) {
+    Animal.count++
+  }
+  static count: number = 0
+  speak() {
+    console.log(`${this.name} siger ${this.sound}`)
+  }
+}
+
+class Dog extends Animal {
+
+  constructor(public name) {
+    super("woof", name)
+    Dog.count++
+  }
+}
+
+class Cat extends Animal {
+
+  constructor(public name) {
+    super("meow", name)
+    Cat.count++
+  }
+}
+
+const cat1 = new Cat('Freja');
+const cat2 = new Cat('Batman');
+const cat3 = new Cat('Mikkel');
+
+const dog1 = new Dog('Joey');
+const dog2 = new Dog('Buller');
+const dog3 = new Dog('King');
+
+cat1.speak()
+cat2.speak()
+cat3.speak()
+dog1.speak()
+dog2.speak()
+dog3.speak()
+
+console.log(Dog.count)
+console.log(Cat.count)
+console.log(Animal.count)
+```
+
+## Explain TypeScript Generics, the problems they solve, and provide examples of your own generic functions and classes.
+
+## Explain (some) of the purposes with a tool like WebPack, using a simple proof of concept example
+Webpack er en ud af mange forskellige module bundlers. Det betyder at man ved hjælp fra Webpack kan få bundled sine filer sammen til en eller flere filer. I Webpack kan man f.eks. gøre brug af ES2015 modules til at separerer sin kode ud i mindre blokke.
+Webpack har også mulighed for at bundle css og billeder. I Webpack bruger man loaders til at bundle og kompilere kode. Dette gøres ved hjælp af ```webpack.config.js``` heri definerer man alle indstillinger og opsætninger til Webpack.
