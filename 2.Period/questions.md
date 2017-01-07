@@ -71,47 +71,26 @@ Her tjekker vi om det er en master process og hvis det er det løber antallet af
 Vi tager ligeledes og lytter på en ```exit``` event hvis nu at en worker stopper så vi kan starte den op igen.
 Hvis det er en worker process så starter vi en Express Server op og starter med at lytte på indgående kald.
 
+## Explain, using relevant examples, concepts related to the testing a REST-API using Node/JavaScript + relevant packages
+For at teste et REST-API ved brug Node/JavaScript vil vi i her gøre brug af Mocha og Chai.
+
+Vi kan tage udgangspunkt i en af opgaverne
+https://github.com/MatsKruger/Mean.2.Period/tree/master/test/3%20Test%20a%20Rest%20API
+
+## Explain, using relevant examples, the Express concept; middleware.
+En Express applikation er i bund og grund en serie af middleware funktioner. Middleware funktioner er funktioner der har adgangs til request og response objektet samt den næste middleware funktion. Middleware har adgang til at kører alt kode, ændre på request og response objekterne, afslutte request/respons og eksekvere den næste middleware funktion ved hjælp af ```next```.
+
+Der er 3 forskellige slags middleware
+1. Application-level middleware ```use```, ```get```...
+2. Router-level middleware ```use```, ```get```...
+3. Error-handling middleware
+4. Built-in middleware
+5. Third-party middleware f.eks. ```bodyparser()```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Node.js uses a Single Threaded Non-blocking strategy to handle asynchronous task. Explain strategies to
-implement a Node.js based server architecture that still could take advantage of a multi-core Server.
-Explain, using relevant examples, concepts related to the testing a REST-API using Node/JavaScript +
-relevant packages
-Explain, using relevant examples, the Express concept; middleware.
-Explain, using relevant examples, how to implement sessions, and the legal implications of doing this.
-Compare the express strategy toward (server side) templating with the one you used with Java on second
-semester.
-Explain, using a relevant examples, your strategy for implementing a REST-API with Node/Express and show
-how you can "test" all the four CRUD operations programmatically using for example the Request package.
-Explain, using relevant examples, about testing JavaScript code, relevant packages (Mocha etc.) and how to
-test asynchronous code.
-Explain, using relevant examples, different ways to mock out databases, HTTP-request etc.
+## Explain, using relevant examples, how to implement sessions, and the legal implications of doing this.
+## Compare the express strategy toward (server side) templating with the one you used with Java on second semester.
+## Explain, using a relevant examples, your strategy for implementing a REST-API with Node/Express and show
+## how you can "test" all the four CRUD operations programmatically using for example the Request package.
+## Explain, using relevant examples, about testing JavaScript code, relevant packages (Mocha etc.) and how to test asynchronous code.
+## Explain, using relevant examples, different ways to mock out databases, HTTP-request etc.
