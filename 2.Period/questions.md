@@ -13,6 +13,9 @@ Node kan kombineres sammen med en browser og en dokument database som f.eks. Mon
 - Er hurtigere
 
 **Cons**
+- Dokumentation er ikke så beskrivene
+- Callbacks kan være svære at forstå
+- JavaScript er i rivende udvikling hvilket gør man skal holde sig opdateret hele tiden.
 
 ## Node.js uses a Single Threaded Non-blocking strategy to handle asynchronous task. Explain strategies to implement a Node.js based server architecture that still could take advantage of a multi-core Server.
 Vi kan gøre brug af Nodes ```cluster``` modul som bygger oven på ```child_processes``` modulet, til at tage brug af en multi kerne processor.
