@@ -48,7 +48,7 @@ elem.innerHTML = x
 ```
 
 ## this in JavaScript and how it differs from what we know from Java/.net.
-I JavaScript referere ```this``` til hvordan funktionen er blevet kaldt. Det betyder at hvis funktionen bliver kaldt direkte er this det ```script``` eller den nærmeste omkransende ```function```. Hvis funktionen bliver kaldt med ```call``` eller bliver sat med ```bind``` kan man ændre ```this
+I JavaScript referere ```this``` til hvordan funktionen er blevet kaldt. Det betyder at hvis funktionen bliver kaldt direkte er this det ```script``` eller den nærmeste omkransende ```function```. Hvis funktionen bliver kaldt med ```call``` eller bliver sat med ```bind``` kan man ændre ```this```
 ```javascript
 function test(p1) {
 	var p2 = 'hello';
